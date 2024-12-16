@@ -10,4 +10,20 @@ public class Booking {
         this.bookingDetails = bookingDetails;
         this.price = price;
     }
+
+    public void setBookingId(int bookingId) {
+        this.bookingId = bookingId;
+    }
+
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
+    }
+
+    public void setBookingDetails(String bookingDetails) {
+        this.bookingDetails = bookingDetails;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }
