@@ -26,4 +26,21 @@ public class Booking {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public int getBookingId() {
+        return bookingId;
+    }
+
+    public String getRoomType() {
+        return roomType;
+    }
+
+    public String getBookingDetails() {
+        return bookingDetails;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
 }
