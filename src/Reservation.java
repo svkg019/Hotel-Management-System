@@ -14,4 +14,43 @@ public class Reservation {
         this.name = name;
         this.contact = contact;
     }
+
+
+    public int getReservationId() {
+        return reservationId;
+    }
+    public String getCheckInDate() {
+        return checkInDate;
+    }
+    public String getCheckOutDate() {
+        return checkOutDate;
+    }
+    public String getRoomPreference() {
+        return roomPreference;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getContact() {
+        return contact;
+    }
+
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
+    }
+    public void setCheckInDate(String checkInDate) {
+        this.checkInDate = checkInDate;
+    }
+    public void setCheckOutDate(String checkOutDate) {
+        this.checkOutDate = checkOutDate;
+    }
+    public void setRoomPreference(String roomPreference) {
+        this.roomPreference = roomPreference;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
 }
