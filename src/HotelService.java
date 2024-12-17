@@ -9,7 +9,7 @@ public class HotelService {
     public void registerUser(User user) {
         userDAO.addUser(user);
     }
-    public void updateUser(int userId, String email) {
+    public void updateUser(String userId, String email) {
         userDAO.updateUser(userId, email);
     }
     public void deleteUser(String userId) {

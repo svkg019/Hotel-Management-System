@@ -34,7 +34,7 @@ class Main{
 
 public static void registerNewUser() {
     System.out.println("Enter your preferred UserId: ");
-    String userId = sc.next();
+    String userId = sc.next(); sc.nextLine();
     System.out.println("Enter your full name: ");
     String name = sc.nextLine();
     System.out.println("Enter your email: ");
@@ -51,7 +51,7 @@ public static void registerNewUser() {
 
 public static void updateUser() {
     System.out.println("Enter the userId: ");
-    int userId = sc.nextInt();
+    String userId = sc.next();
     System.out.println("Enter the new email: ");
     String email = sc.nextLine();
     hotelService.updateUser(userId, email);
