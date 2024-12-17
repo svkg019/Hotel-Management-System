@@ -7,27 +7,47 @@ class Main{
     public static void main(String[] args) {
         do {
             System.out.println("+++++Hotel Management System+++++");
-            System.out.println("1. Register new user");
-            System.out.println("2. Update user");
-            System.out.println("3. Delete user");
-            System.out.println("4. View users");
+            System.out.println("1. User Management");
+            System.out.println("2. Log-in");
             switch (sc.nextInt()) {
                 case 1:
-                    registerNewUser();
-                    break;
+                    boolean flag = false;
+                    do{
+                        System.out.println("1. Register new user");
+                        System.out.println("2. Update user");
+                        System.out.println("3. Delete user");
+                        System.out.println("4. View users");
+                        System.out.println("5. Go back");
+                        switch (sc.nextInt()) {
+                            case 1:
+                                registerNewUser();
+                                break;
+                            case 2:
+                                updateUser();
+                                break;
+                            case 3:
+                                deleteUser();
+                                break;
+                            case 4:
+                                viewUsers();
+                                break;
+                            case 5:
+                                flag = true;
+                                break;
+                            default:
+                                System.out.println("Invalid option");
+                                break;
+                        }
+                    }while(flag);
                 case 2:
-                    updateUser();
-                    break;
-                case 3:
-                    deleteUser();
-                    break;
-                case 4:
-                    viewUsers();
+                    //login();
                     break;
                 default:
                     System.out.println("Invalid option");
                     break;
             }
+
+
         }while(true);
 
     }
@@ -51,9 +71,9 @@ public static void registerNewUser() {
 
 public static void updateUser() {
     System.out.println("Enter the userId: ");
-    String userId = sc.next();
+    String userId = sc.next(); sc.nextLine();
     System.out.println("Enter the new email: ");
-    String email = sc.nextLine();
+    String email = sc.next();
     hotelService.updateUser(userId, email);
 }
 
