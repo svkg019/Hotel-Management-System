@@ -12,7 +12,7 @@ public class HotelService {
     public void updateUser(int userId, String email) {
         userDAO.updateUser(userId, email);
     }
-    public void deleteUser(int userId) {
+    public void deleteUser(String userId) {
         userDAO.deleteUser(userId);
     }
     public void viewUsers() {

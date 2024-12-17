@@ -59,7 +59,7 @@ public static void updateUser() {
 
 public static void deleteUser() {
     System.out.println("Enter the userId: ");
-    int userId = sc.nextInt();
+    String userId = sc.next();
     hotelService.deleteUser(userId);
 }
 
