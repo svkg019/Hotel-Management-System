@@ -16,7 +16,7 @@ public class UserDAO {
 
     public void updateUser(String userId, String email) {
         for (User user : userList) {
-            if (user.getEmail().equalsIgnoreCase(userId)) {
+            if (user.getUserId().equalsIgnoreCase(userId)) {
                 user.setEmail(email);
                 System.out.println("User details are updated successfully");
                 return;
