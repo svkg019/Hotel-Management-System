@@ -11,7 +11,7 @@ class Main{
             System.out.println("2. Log-in");
             switch (sc.nextInt()) {
                 case 1:
-                    boolean flag = false;
+                    boolean flag = true;
                     do{
                         System.out.println("1. Register new user");
                         System.out.println("2. Update user");
@@ -32,15 +32,17 @@ class Main{
                                 viewUsers();
                                 break;
                             case 5:
-                                flag = true;
+                                flag = false;
                                 break;
                             default:
                                 System.out.println("Invalid option");
                                 break;
                         }
                     }while(flag);
+                    break;
                 case 2:
-                    //login();
+                    System.out.println("*****Log-in Menu*****");
+
                     break;
                 default:
                     System.out.println("Invalid option");
