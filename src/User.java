@@ -1,11 +1,11 @@
 public class User {
-    private int userId;
+    private String userId;
     private String fullName;
     private String email;
     private String phoneNumber;
     private String password;
 
-    public User(int userId, String fullName, String email, String phoneNumber, String password) {
+    public User(String userId, String fullName, String email, String phoneNumber, String password) {
         this.userId = userId;
         this.fullName = fullName;
         this.email = email;
@@ -14,7 +14,7 @@ public class User {
     }
 
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
     public String getFullName() {
@@ -30,7 +30,7 @@ public class User {
         return password;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
     public void setFullName(String fullName) {
