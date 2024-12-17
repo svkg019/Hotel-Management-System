@@ -1,11 +1,13 @@
 public class Room {
+    private short roomNumber;
     private boolean isBooked;
     private String roomType;
     private int dateOfAvailability;
     private int price;
     private String place;
 
-    public Room(boolean isBooked, String roomType, int dateOfAvailability, int price, String place) {
+    public Room(short roomNumber, boolean isBooked, String roomType, int dateOfAvailability, int price, String place) {
+        this.roomNumber = roomNumber;
         this.isBooked = isBooked;
         this.roomType = roomType;
         this.dateOfAvailability = dateOfAvailability;
@@ -13,6 +15,9 @@ public class Room {
         this.place = place;
     }
 
+    public short getRoomNumber() {
+        return roomNumber;
+    }
     public boolean getIsBooked() {
         return isBooked;
     }
@@ -29,6 +34,9 @@ public class Room {
         return place;
     }
 
+    public void setRoomNumber(short roomNumber) {
+        this.roomNumber = roomNumber;
+    }
     public void setIsBooked(boolean isBooked) {
         this.isBooked = isBooked;
     }
