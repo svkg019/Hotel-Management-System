@@ -6,6 +6,10 @@ public class RoomDAO {
         return rooms;
     }
 
+    public void addRoom(Room room) {
+        rooms.add(room);
+    }
+
 //update room status
     public void updateRoomStatus(short roomNumber, boolean isBooked) {
         for (Room room : rooms) {
