@@ -1,21 +1,21 @@
 public class Room {
-    private short roomNumber;
-    private boolean isBooked;
+    private int roomNumber;
     private String roomType;
-    private int dateOfAvailability;
-    private int price;
     private String place;
+    private int price;
+    private boolean isBooked;
+    private String dateOfAvailability;
 
-    public Room(short roomNumber, boolean isBooked, String roomType, int dateOfAvailability, int price, String place) {
+    public Room(int roomNumber, String roomType, String place, int price, boolean isBooked, String dateOfAvailability) {
         this.roomNumber = roomNumber;
-        this.isBooked = isBooked;
         this.roomType = roomType;
-        this.dateOfAvailability = dateOfAvailability;
-        this.price = price;
         this.place = place;
+        this.price = price;
+        this.isBooked = isBooked;
+        this.dateOfAvailability = dateOfAvailability;
     }
 
-    public short getRoomNumber() {
+    public int getRoomNumber() {
         return roomNumber;
     }
     public boolean getIsBooked() {
@@ -24,7 +24,7 @@ public class Room {
     public String getRoomType() {
         return roomType;
     }
-    public int getDateOfAvailability() {
+    public String getDateOfAvailability() {
         return dateOfAvailability;
     }
     public int getPrice() {
@@ -34,7 +34,7 @@ public class Room {
         return place;
     }
 
-    public void setRoomNumber(short roomNumber) {
+    public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
     }
     public void setIsBooked(boolean isBooked) {
@@ -43,7 +43,7 @@ public class Room {
     public void setRoomType(String roomType) {
         this.roomType = roomType;
     }
-    public void setDateOfAvailability(int dateOfAvailability) {
+    public void setDateOfAvailability(String dateOfAvailability) {
         this.dateOfAvailability = dateOfAvailability;
     }
     public void setPrice(int price) {
