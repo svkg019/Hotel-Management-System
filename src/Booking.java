@@ -6,9 +6,10 @@ public class Booking {
     private String checkOutDate;
     private double price;
     private String Name;
-    private String contact;
+    private String mobileNumber;
+    private String email;
 
-    public Booking(String customerId, int bookingId, String roomType, String checkInDate, String checkOutDate, double price, String Name, String contact) {
+    public Booking(String customerId, int bookingId, String roomType, String checkInDate, String checkOutDate, double price, String Name, String mobileNumber, String email) {
         this.customerId = customerId;
         this.bookingId = bookingId;
         this.roomType = roomType;
@@ -16,7 +17,8 @@ public class Booking {
         this.checkOutDate = checkOutDate;
         this.price = price;
         this.Name = Name;
-        this.contact = contact;
+        this.mobileNumber = mobileNumber;
+        this.email = email;
     }
 
 
@@ -43,8 +45,11 @@ public class Booking {
     public void setName(String Name) {
         this.Name = Name;
     }
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getCustomerId() {
@@ -69,7 +74,10 @@ public class Booking {
     public String getName() {
         return Name;
     }
-    public String getContact() {
-        return contact;
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+    public String getEmail() {
+        return email;
     }
 }
