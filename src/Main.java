@@ -59,10 +59,10 @@ class Main{
                                     System.out.println("Booking Hotel Services");
                                     break;
                                 case 2:
-                                    System.out.println("View Booking History");
+                                    hotelService.viewBookingHistory();
                                     break;
                                 case 3:
-                                    System.out.println("View Booking History by ID");
+                                    viewBookingHistoryByID();
                                     break;
                                 case 4:
                                     System.out.println("Room Status");
@@ -180,5 +180,12 @@ public static String login() {
     }
     return "invalid";
 }
+
+public static void viewBookingHistoryByID() {
+    System.out.println("Enter the userId: ");
+    String userId = sc.next();
+    hotelService.viewBookingHistoryByID(userId);
+}
+
 
 }
