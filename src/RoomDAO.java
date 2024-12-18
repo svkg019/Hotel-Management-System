@@ -11,7 +11,7 @@ public class RoomDAO {
     }
 
 //update room status
-    public void updateRoomStatus(short roomNumber, boolean isBooked) {
+    public void updateRoomStatus(int roomNumber, boolean isBooked) {
         for (Room room : rooms) {
             if (room.getRoomNumber() == roomNumber) {
                 room.setIsBooked(isBooked);
@@ -23,7 +23,7 @@ public class RoomDAO {
     }
 
     //update availability date
-    public void updateRoomAvailability(short roomNumber, int dateOfAvailability) {
+    public void updateRoomAvailability(int roomNumber, String dateOfAvailability) {
         for (Room room : rooms) {
             if (room.getRoomNumber() == roomNumber) {
                 room.setDateOfAvailability(dateOfAvailability);
