@@ -42,7 +42,83 @@ class Main{
                     break;
                 case 2:
                     System.out.println("*****Log-in Menu*****");
+                    String role = login();
+                    if (role.equals("admin")) {
+                        boolean flag1 = true;
+                        do {
+                            System.out.println("+++++Admin Menu+++++");
+                            System.out.println("1. Booking Hotel Services");
+                            System.out.println("2. View Booking History");
+                            System.out.println("3. View Booking History by ID");
+                            System.out.println("4. Room Status");
+                            System.out.println("5. Check-out Billing Invoice");
+                            System.out.println("6. View Complaints");
+                            System.out.println("7. Go-Back");
+                            switch (sc.nextInt()) {
+                                case 1:
+                                    System.out.println("Booking Hotel Services");
+                                    break;
+                                case 2:
+                                    System.out.println("View Booking History");
+                                    break;
+                                case 3:
+                                    System.out.println("View Booking History by ID");
+                                    break;
+                                case 4:
+                                    System.out.println("Room Status");
+                                    break;
+                                case 5:
+                                    System.out.println("Check-out Billing Invoice");
+                                    break;
+                                case 6:
+                                    System.out.println("View Complaints");
+                                    break;
+                                case 7:
+                                    flag1 = false;
+                                    break;
+                                default:
+                                    System.out.println("Invalid option");
+                                    break;
+                            }
 
+                        }while(flag1);
+                    } else if (role.equals("user")) {
+                        boolean flag1 = true;
+                        do {
+                            System.out.println("+++++Customer Menu+++++");
+                            System.out.println("1. Reservation");
+                            System.out.println("2. View Booking History");
+                            System.out.println("3. Check-out Billing");
+                            System.out.println("4. Complaints");
+                            System.out.println("5. Contact");
+                            System.out.println("6. Go-Back");
+                            switch (sc.nextInt()) {
+                                case 1:
+                                    System.out.println("Reservation");
+                                    break;
+                                case 2:
+                                    System.out.println("View Booking History");
+                                    break;
+                                case 3:
+                                    System.out.println("Check-out Billing");
+                                    break;
+                                case 4:
+                                    System.out.println("Complaints");
+                                    break;
+                                case 5:
+                                    System.out.println("Contact");
+                                    break;
+                                case 6:
+                                    flag1 = false;
+                                    break;
+                                default:
+                                    System.out.println("Invalid option");
+                                    break;
+                            }
+                        }while(flag1);
+                    } else {
+                        System.out.println("Invalid credentials");
+                    }
                     break;
                 default:
                     System.out.println("Invalid option");
@@ -87,6 +163,22 @@ public static void deleteUser() {
 
 public static void viewUsers() {
     hotelService.viewUsers();
+}
+
+public static String login() {
+    System.out.println("Enter your userId: ");
+    String userId = sc.next();
+    System.out.println("Enter your password: ");
+    String password = sc.next();sc.nextLine();
+    if (hotelService.userVerification(userId, password)) {
+        System.out.println("Logged in successfully");
+        if (hotelService.isAdmin(userId)) {
+            return "admin";
+        } else {
+            return "user";
+        }
+    }
+    return "invalid";
 }
 
 }
