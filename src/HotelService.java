@@ -1,9 +1,11 @@
 import java.util.*;
 public class HotelService {
     private final UserDAO userDAO;
+    private final BookingDAO bookingDAO;
 
     public HotelService() {
         userDAO = new UserDAO();
+        bookingDAO = new BookingDAO();
     }
 
     public void registerUser(User user) {
@@ -30,9 +32,27 @@ public class HotelService {
         }
         return false;
     }
-
     public boolean isAdmin(String userId){
         return userId.toLowerCase().contains("hotel.com");
     }
+
+
+    public void viewBookingHistoryByID(String userId) {
+        List<Booking> bookings = bookingDAO.getAllBookings();
+        for (Booking booking : bookings) {
+            if (booking.getCustomerId().equalsIgnoreCase(userId)) {
+                System.out.println(booking.getBookingId() + " " + booking.getCheckInDate() + " " + booking.getCheckOutDate() + " " + booking.getRoomNumber());
+            }
+        }
+    }
+
+    public void viewBookingHistory() {
+        List<Booking> bookings = bookingDAO.getAllBookings();
+        for (Booking booking : bookings) {
+            System.out.println(booking.getCustomerId() + " " + booking.getName() + " " + booking.getMobileNumber() + " " + booking.getEmail());
+        }
+    }
+
+
 
 }
