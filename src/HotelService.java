@@ -21,5 +21,18 @@ public class HotelService {
             System.out.println(user.getUserId() + " " + user.getFullName() + " " + user.getEmail() + " " + user.getPhoneNumber());
         }
     }
+    public boolean userVerification(String userId, String password){
+        List<User> users = userDAO.getAllUsers();
+        for (User user : users) {
+            if (user.getUserId().equalsIgnoreCase(userId) && user.getPassword().equals(password)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isAdmin(String userId){
+        return userId.toLowerCase().contains("hotel.com");
+    }
 
 }
