@@ -1,5 +1,5 @@
 public class Booking {
-    private int customerId;
+    private String customerId;
     private int bookingId;
     private String roomType;
     private String checkInDate;
@@ -8,7 +8,7 @@ public class Booking {
     private String Name;
     private String contact;
 
-    public Booking(int customerId, int bookingId, String roomType, String checkInDate, String checkOutDate, double price, String Name, String contact) {
+    public Booking(String customerId, int bookingId, String roomType, String checkInDate, String checkOutDate, double price, String Name, String contact) {
         this.customerId = customerId;
         this.bookingId = bookingId;
         this.roomType = roomType;
@@ -20,7 +20,7 @@ public class Booking {
     }
 
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
     public void setBookingId(int bookingId) {
@@ -47,7 +47,7 @@ public class Booking {
         this.contact = contact;
     }
 
-    public int getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
     public int getBookingId() {
