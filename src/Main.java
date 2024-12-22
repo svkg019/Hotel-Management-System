@@ -65,7 +65,7 @@ class Main{
                                     viewBookingHistoryByID();
                                     break;
                                 case 4:
-                                    System.out.println("Room Status");
+                                    viewRoomStatusAdmin();
                                     break;
                                 case 5:
                                     viewBill();
@@ -365,6 +365,7 @@ class Main{
             System.out.println("1. New reservation");
             System.out.println("2. Update reservation");
             System.out.println("3. Delete reservation");
+            System.out.println("4. Go-Back");
             int choice = sc.nextInt();
             switch(choice) {
                 case 1:
@@ -383,6 +384,37 @@ class Main{
                     System.out.println("Invalid Option! Try again.");
             }
         }while(exit==0);
+    }
+
+    public static void viewRoomStatusAdmin() {
+        hotelService.getRoomDetails();
+        int exit=0;
+        do {
+            System.out.println("1. Update room status");
+            System.out.println("2. Update date of availability");
+            System.out.println("3. Go-Back");
+            int choice = sc.nextInt();
+            switch(choice) {
+                case 1:
+                    System.out.println("Enter the room number: ");
+                    int roomNumber = sc.nextInt();
+                    hotelService.changeIsBooked(roomNumber);
+                    break;
+                case 2:
+                    System.out.println("Enter the room number: ");
+                    int roomNumber1 = sc.nextInt();
+                    System.out.println("Enter the new date of availability: ");
+                    String date = sc.next();
+                    hotelService.changeDateOfAvailability(roomNumber1,date);
+                    break;
+                case 3:
+                    exit=1;
+                    break;
+                default:
+                    System.out.println("Invalid Option! Try again.");
+            }
+        }while(exit==0);
+
     }
 }
 
