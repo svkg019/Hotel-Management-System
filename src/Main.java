@@ -193,9 +193,9 @@ class Main{
 
     public static void addComplaint() {
         System.out.print("Please enter your user name: ");
-        String userName = sc.next();sc.nextLine();
+        String userName = sc.next();
         System.out.print("Please enter your contact number: ");
-        int contact = sc.nextInt();
+        String contact = sc.next();
         System.out.print("Please enter your room number: ");
         int roomNumber = sc.nextInt();
         System.out.println("Type of complaint:");
@@ -268,69 +268,73 @@ class Main{
     public static void payBill() {
         System.out.println("Please enter your user ID: ");
         String userId = sc.next();
-        Booking booking = hotelService.bookingFinder(userId);
-        if(booking==null) {
+        List<Booking> userBookings  = hotelService.bookingFinder(userId);
+        if(userBookings==null) {
             System.out.println("No booking found!");
         }
         else {
-            hotelService.billCalculation(booking);
-            int exit=0;
-            do {
-                System.out.println("Do you want to pay now?");
-                System.out.println("1. Yes");
-                System.out.println("2. Later");
-                int choice = sc.nextInt();
-                switch(choice) {
-                    case 1:
-                        System.out.println("Please enter your payment details:");
-                        System.out.println("Card holder name: ");
-                        String name = sc.nextLine();
-                        System.out.print("Card number: ");
-                        int cardNumber = sc.nextInt();
-                        System.out.print("CVV: ");
-                        int cvv = sc.nextInt();sc.nextLine();
-                        System.out.print("Expiry Date: ");
-                        String ed = sc.next();
-                        PaymentDetails pd = new PaymentDetails(userId,name,cardNumber,cvv,ed);
-                        hotelService.addPaymentDetails(pd);
-                        System.out.println("Payment Successful");
-                        exit=1;
-                        break;
-                    case 2:
-                        exit=1;
-                        break;
-                    default:
-                        System.out.println("Invalid Option! Try again.");
-                }
-            }while(exit==0);
+            for (Booking booking : userBookings) {
+                hotelService.billCalculation(booking);
+                int exit=0;
+                do {
+                    System.out.println("Do you want to pay now?");
+                    System.out.println("1. Yes");
+                    System.out.println("2. Later");
+                    int choice = sc.nextInt();sc.nextLine();
+                    switch(choice) {
+                        case 1:
+                            System.out.println("Please enter your payment details:");
+                            System.out.println("Card holder name: ");
+                            String name = sc.nextLine();
+                            System.out.print("Card number: ");
+                            int cardNumber = sc.nextInt();
+                            System.out.print("CVV: ");
+                            int cvv = sc.nextInt();sc.nextLine();
+                            System.out.print("Expiry Date: ");
+                            String ed = sc.next();
+                            PaymentDetails pd = new PaymentDetails(userId,name,cardNumber,cvv,ed);
+                            hotelService.addPaymentDetails(pd);
+                            System.out.println("Payment Successful");
+                            exit=1;
+                            break;
+                        case 2:
+                            exit=1;
+                            break;
+                        default:
+                            System.out.println("Invalid Option! Try again.");
+                    }
+                }while(exit==0);
+            }
         }
     }
     public static void viewBill() {
-        System.out.println("Please enter the user ID: ");
+        System.out.println("Please enter the customer ID: ");
         String userId = sc.next();
-        Booking booking = hotelService.bookingFinder(userId);
-        if(booking==null) {
+        List<Booking> userBookings = hotelService.bookingFinder(userId);
+        if(userBookings==null) {
             System.out.println("No booking found!");
         }else {
-            hotelService.billCalculation(booking);
-            int exit=0;
-            do {
-                System.out.println("Do you want to approved the payment?");
-                System.out.println("1. Yes");
-                System.out.println("2. No");
-                int choice = sc.nextInt();
-                switch(choice) {
-                    case 1:
-                        System.out.println("Payment Approved!");
-                        exit=1;
-                        break;
-                    case 2:
-                        exit=1;
-                        break;
-                    default:
-                        System.out.println("Invalid Option! Try again.");
-                }
-            }while(exit==0);
+            for (Booking booking : userBookings) {
+                hotelService.billCalculation(booking);
+                int exit=0;
+                do {
+                    System.out.println("Do you want to approved the payment?");
+                    System.out.println("1. Yes");
+                    System.out.println("2. No");
+                    int choice = sc.nextInt();
+                    switch(choice) {
+                        case 1:
+                            System.out.println("Payment Approved!");
+                            exit=1;
+                            break;
+                        case 2:
+                            exit=1;
+                            break;
+                        default:
+                            System.out.println("Invalid Option! Try again.");
+                    }
+                }while(exit==0);
+            }
         }
 
     }
@@ -342,7 +346,7 @@ class Main{
             System.out.println("2. Update reservation");
             System.out.println("3. Delete reservation");
             System.out.println("4. Go-Back");
-            int choice = sc.nextInt();
+            int choice = sc.nextInt();sc.nextLine();
             switch(choice) {
                 case 1:
                     newReservation();
@@ -405,9 +409,9 @@ class Main{
 
     public static void updateBookingName() {
         System.out.println("Enter the booking id: ");
-        int bookingId = sc.nextInt();
+        int bookingId = sc.nextInt();sc.nextLine();
         System.out.println("Enter the new name: ");
-        String name = sc.next();
+        String name = sc.nextLine();
         hotelService.updateNameInBooking(bookingId, name);
     }
 
@@ -463,6 +467,7 @@ class Main{
             }
         }while (exit==0);
         hotelService.updateRoomTypeInBooking(bookingId, roomPreferenceID);
+        System.out.println("Booking updated successfully");
     }
 
     public static void newBookingAdmin(){
@@ -503,6 +508,7 @@ class Main{
             hotelService.changeDateOfAvailability(roomNumber,checkOutDate);
             hotelService.billCalculation(booking);
             System.out.println("---------------------");
+            System.out.println("Your reservation ID is: "+booking.getBookingId());
             System.out.println("Reservation added successfully");
         }
     }
