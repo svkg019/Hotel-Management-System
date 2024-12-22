@@ -2,15 +2,16 @@ public class Booking {
     private String Name;
     private String mobileNumber;
     private String email;
-    private String roomType;
+    private int roomType;
     private String checkInDate;
     private String checkOutDate;
     private int bookingId;
     private String customerId;
     private double price;
     private int roomNumber;
+    private String location;
 
-    public Booking(String Name, String mobileNumber, String email, String roomType, String checkInDate, String checkOutDate, int bookingId, String customerId, double price, int roomNumber) {
+    public Booking(String Name, String mobileNumber, String email, int roomType, String checkInDate, String checkOutDate, int bookingId, String customerId, double price, int roomNumber, String location) {
         this.Name = Name;
         this.mobileNumber = mobileNumber;
         this.email = email;
@@ -21,6 +22,7 @@ public class Booking {
         this.customerId = customerId;
         this.price = price;
         this.roomNumber = roomNumber;
+        this.location=location;
     }
 
 
@@ -31,7 +33,7 @@ public class Booking {
         this.bookingId = bookingId;
     }
 
-    public void setRoomType(String roomType) {
+    public void setRoomType(int roomType) {
         this.roomType = roomType;
     }
 
@@ -64,7 +66,7 @@ public class Booking {
         return bookingId;
     }
 
-    public String getRoomType() {
+    public int getRoomType() {
         return roomType;
     }
     public String getCheckInDate() {
@@ -87,5 +89,8 @@ public class Booking {
     }
     public int getRoomNumber() {
         return roomNumber;
+    }
+    public String getLocation() {
+        return this.location;
     }
 }

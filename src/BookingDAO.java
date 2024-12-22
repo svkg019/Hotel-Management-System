@@ -13,7 +13,7 @@ public class BookingDAO {
         bookingList.add(booking);
     }
 
-    public void updateBooking(int bookingId, String roomType) {
+    public void updateBooking(int bookingId, int roomType) {
         for (Booking booking : bookingList) {
             if (booking.getBookingId() == bookingId) {
                 booking.setRoomType(roomType);
