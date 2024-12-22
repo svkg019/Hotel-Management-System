@@ -11,17 +11,14 @@ public class Booking {
     private int roomNumber;
     private String location;
 
-    public Booking(String Name, String mobileNumber, String email, int roomType, String checkInDate, String checkOutDate, int bookingId, String customerId, double price, int roomNumber, String location) {
+    public Booking(String Name, String mobileNumber, String email, int roomType, String checkInDate, String checkOutDate, String customerId, String location) {
         this.Name = Name;
         this.mobileNumber = mobileNumber;
         this.email = email;
         this.roomType = roomType;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
-        this.bookingId = bookingId;
         this.customerId = customerId;
-        this.price = price;
-        this.roomNumber = roomNumber;
         this.location=location;
     }
 
