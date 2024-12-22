@@ -1,3 +1,6 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 public class HotelService {
@@ -201,7 +204,7 @@ public class HotelService {
     //Payment
     public void billCalculation(Booking booking) {
         double totalBill = 0;
-        int days = 2;
+        int days = calculateDurationInDays(booking.getCheckInDate(), booking.getCheckOutDate());
         int roomCharge=0;
         if(booking.getRoomType()==1) {
             roomCharge=1000;
@@ -228,6 +231,15 @@ public class HotelService {
             }
         }
         return null;
+    }
+
+
+    public static int calculateDurationInDays(String startDateStr, String endDateStr) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate startDate = LocalDate.parse(startDateStr, formatter);
+        LocalDate endDate = LocalDate.parse(endDateStr, formatter);
+
+        return (int) ChronoUnit.DAYS.between(startDate, endDate);
     }
 
     public void addPaymentDetails(PaymentDetails pd) {
