@@ -287,7 +287,7 @@ class Main{
                             System.out.println("Card holder name: ");
                             String name = sc.nextLine();
                             System.out.print("Card number: ");
-                            int cardNumber = sc.nextInt();
+                            String cardNumber = sc.next();
                             System.out.print("CVV: ");
                             int cvv = sc.nextInt();sc.nextLine();
                             System.out.print("Expiry Date: ");
