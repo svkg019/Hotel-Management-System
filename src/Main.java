@@ -367,7 +367,20 @@ class Main{
         System.out.println("Enter the check-out date: ");
         String checkOutDate = sc.next();
         System.out.println("Enter the room preference: ");
-        int roomPreferenceID = sc.nextInt();
+        int roomPreferenceID = 0;
+        int exit=0;
+        do {
+            System.out.println("1. 1-BHK");
+            System.out.println("2. 2-BHK");
+            System.out.println("3. 3-BHK");
+            roomPreferenceID = sc.nextInt();
+            if(roomPreferenceID>=1&&roomPreferenceID<=3) {
+                exit=1;
+            }
+            else {
+                System.out.println("Invalid Option! Try again.");
+            }
+        }while (exit==0);
         System.out.println("Enter your name: ");
         String name = sc.next();
         System.out.println("Enter your contact number: ");
@@ -410,13 +423,13 @@ class Main{
             int choice = sc.nextInt();
             switch(choice) {
                 case 1:
-                    System.out.println("New Booking");
+                    newBookingAdmin();
                     break;
                 case 2:
-                    System.out.println("Update Booking");
+                    updateRoomTypeInBooking();
                     break;
                 case 3:
-                    System.out.println("Delete Booking");
+                    deleteReservation();
                     break;
                 case 4:
                     exit=1;
@@ -425,6 +438,69 @@ class Main{
                     System.out.println("Invalid Option! Try again.");
             }
         }while(exit==0);
+    }
+
+    public static void updateRoomTypeInBooking() {
+        System.out.println("Enter the booking id: ");
+        int bookingId = sc.nextInt();
+        System.out.println("Enter the new room type: ");
+        int roomPreferenceID = 0;
+        int exit=0;
+        do {
+            System.out.println("1. 1-BHK");
+            System.out.println("2. 2-BHK");
+            System.out.println("3. 3-BHK");
+            roomPreferenceID = sc.nextInt();
+            if(roomPreferenceID>=1&&roomPreferenceID<=3) {
+                exit=1;
+            }
+            else {
+                System.out.println("Invalid Option! Try again.");
+            }
+        }while (exit==0);
+        hotelService.updateRoomTypeInBooking(bookingId, roomPreferenceID);
+    }
+
+    public static void newBookingAdmin(){
+        System.out.println("Enter desired location: ");
+        String location = sc.next();
+        System.out.println("Enter the check-in date: ");
+        String checkInDate = sc.next();
+        System.out.println("Enter the check-out date: ");
+        String checkOutDate = sc.next();
+        System.out.println("Enter the room preference: ");
+        int roomPreferenceID = 0;
+        int exit=0;
+        do {
+            System.out.println("1. 1-BHK");
+            System.out.println("2. 2-BHK");
+            System.out.println("3. 3-BHK");
+            roomPreferenceID = sc.nextInt();
+            if(roomPreferenceID>=1&&roomPreferenceID<=3) {
+                exit=1;
+            }
+            else {
+                System.out.println("Invalid Option! Try again.");
+            }
+        }while (exit==0);
+        System.out.println("Enter your name: ");
+        String name = sc.next();
+        System.out.println("Enter your contact number: ");
+        String contact = sc.next();
+        System.out.println("Enter your customerID: ");
+        String customerID = sc.next();
+        int roomNumber = hotelService.checkRoomAvailability(roomPreferenceID, location);
+        if(roomNumber==-1) {
+            System.out.println("No room available!");
+        }else {
+            Booking booking = new Booking(name, contact,customerID,roomPreferenceID,checkInDate,checkOutDate,location,roomNumber);
+            hotelService.addBooking(booking);
+            hotelService.changeIsBooked(roomNumber);
+            hotelService.changeDateOfAvailability(roomNumber,checkOutDate);
+            hotelService.billCalculation(booking);
+            System.out.println("---------------------");
+            System.out.println("Reservation added successfully");
+        }
     }
 
     public static void viewRoomStatusAdmin() {
