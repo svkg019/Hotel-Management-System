@@ -142,6 +142,15 @@ public class HotelService {
         return -1;
     }
 
+    public void updateNameInBooking(int bookingId, String name) {
+        List<Booking> bookings = bookingDAO.getAllBookings();
+        for (Booking booking : bookings) {
+            if (booking.getBookingId() == bookingId) {
+                booking.setName(name);
+            }
+        }
+    }
+
     //Contact
     public void contactInformation() {
         System.out.println("Mobile No.: +91-0000000000");
