@@ -57,11 +57,13 @@ public class HotelService {
 
     public void viewBookingHistoryByID(String userId) {
         List<Booking> bookings = bookingDAO.getAllBookings();
+        if (bookings.isEmpty()) {
+            System.out.println("No booking history found");
+            return;
+        }
         for (Booking booking : bookings) {
             if (booking.getCustomerId().equalsIgnoreCase(userId)) {
                 System.out.println(booking.getBookingId() + " " + booking.getCheckInDate() + " " + booking.getCheckOutDate() + " " + booking.getRoomNumber());
-            }else{
-                System.out.println("No booking history found");
             }
         }
     }
@@ -194,6 +196,10 @@ public class HotelService {
     public void viewComplaints() {
         List<Complaint> complaintsList = new ArrayList<>();
         complaintsList = complaintDAO.getAllComplaints();
+        if (complaintsList.isEmpty()) {
+            System.out.println("No complaints found");
+            return;
+        }
         for(Complaint c : complaintsList) {
             System.out.println(c.getUserName()+"\n"+c.getContactNumber()+"\n"+c.getRoomNumber()+"\n"
                     +c.getTypeOfComplaint()+"\n"+c.getFeedbackRating());
