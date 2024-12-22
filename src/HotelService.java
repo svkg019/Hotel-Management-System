@@ -201,8 +201,8 @@ public class HotelService {
             return;
         }
         for(Complaint c : complaintsList) {
-            System.out.println(c.getUserName()+"\n"+c.getContactNumber()+"\n"+c.getRoomNumber()+"\n"
-                    +c.getTypeOfComplaint()+"\n"+c.getFeedbackRating());
+            System.out.println(c.getUserName()+" "+c.getContactNumber()+" "+c.getRoomNumber()+" "
+                    +c.getTypeOfComplaint()+" "+c.getFeedbackRating());
             System.out.println("-------------------------");
         }
     }
