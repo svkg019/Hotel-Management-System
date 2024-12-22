@@ -61,7 +61,6 @@ public class HotelService {
         }
     }
 
-    //view all booking history
     public void viewAllBookingHistory() {
         List<Booking> bookings = bookingDAO.getAllBookings();
         for (Booking booking : bookings) {
@@ -111,7 +110,15 @@ public class HotelService {
     public void getRoomDetails() {
         List<Room> rooms = roomDAO.getAllRooms();
         for (Room room : rooms) {
-            System.out.println(room.getRoomNumber() + " " + room.getRoomType() + " " + room.getPlace() + " " + room.getPrice() + " " + room.getIsBooked() + " " + room.getDateOfAvailability());
+            System.out.println();
+            System.out.print(room.getRoomNumber() + " " + room.getRoomType() + " " + room.getPlace() + " " + room.getPrice()+" ");
+            if (room.getIsBooked()){
+                System.out.print("Occupied"+" ");
+            }else {
+                System.out.print("Vacant"+" ");
+            }
+            System.out.print(room.getDateOfAvailability());
+            System.out.println();
         }
     }
 
