@@ -342,13 +342,13 @@ class Main{
             int choice = sc.nextInt();
             switch(choice) {
                 case 1:
-                    System.out.println("New Reservation");
+                    newReservation();
                     break;
                 case 2:
-                    System.out.println("Update Reservation");
+                    updateBookingName();
                     break;
                 case 3:
-                    System.out.println("Delete Reservation");
+                    deleteReservation();
                     break;
                 case 4:
                     exit=1;
@@ -358,6 +358,47 @@ class Main{
             }
         }while(exit==0);
     }
+
+    public static void newReservation(){
+        System.out.println("Enter desired location: ");
+        String location = sc.next();
+        System.out.println("Enter the check-in date: ");
+        String checkInDate = sc.next();
+        System.out.println("Enter the check-out date: ");
+        String checkOutDate = sc.next();
+        System.out.println("Enter the room preference: ");
+        int roomPreferenceID = sc.nextInt();
+        System.out.println("Enter your name: ");
+        String name = sc.next();
+        System.out.println("Enter your contact number: ");
+        String contact = sc.next();
+        int roomNumber = hotelService.checkRoomAvailability(roomPreferenceID, location);
+        if(roomNumber==-1) {
+            System.out.println("No room available!");
+        }else {
+            Booking booking = new Booking(name, contact,roomPreferenceID,checkInDate,checkOutDate,location,roomNumber);
+            hotelService.addBooking(booking);
+            hotelService.changeIsBooked(roomNumber);
+            hotelService.changeDateOfAvailability(roomNumber,checkOutDate);
+            System.out.println("Reservation added successfully");
+        }
+    }
+
+    public static void updateBookingName() {
+        System.out.println("Enter the booking id: ");
+        int bookingId = sc.nextInt();
+        System.out.println("Enter the new name: ");
+        String name = sc.next();
+        hotelService.updateNameInBooking(bookingId, name);
+    }
+
+    public static void deleteReservation() {
+        System.out.println("Enter the booking id: ");
+        int bookingId = sc.nextInt();
+        hotelService.deleteBooking(bookingId);
+    }
+
+
 
     public static void bookingService() {
         int exit=0;
