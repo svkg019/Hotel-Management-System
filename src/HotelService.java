@@ -211,6 +211,9 @@ public class HotelService {
     public void billCalculation(Booking booking) {
         double totalBill = 0;
         int days = calculateDurationInDays(booking.getCheckInDate(), booking.getCheckOutDate());
+        if (days == 0) {
+            days = 1;
+        }
         int roomCharge=0;
         if(booking.getRoomType()==1) {
             roomCharge=1000;
@@ -220,7 +223,7 @@ public class HotelService {
             roomCharge=3000;
         }
         int extra = 0;
-        if(booking.getLocation()=="Darjelling") {
+        if(booking.getLocation().equalsIgnoreCase("Darjeeling")) {
             extra = 1000;
         }
         totalBill = (roomCharge*days)+extra;
