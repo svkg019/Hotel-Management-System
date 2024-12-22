@@ -1,11 +1,11 @@
 public class Complaint {
     private String userName;
-    private int contactNumber;
+    private String contactNumber;
     private int roomNumber;
     private String typeOfComplaint;
     private String feedbackRating;
 
-    public Complaint(String userName, int contactNumber, int roomNumber, String typeOfComplaint, String feedbackRating) {
+    public Complaint(String userName, String contactNumber, int roomNumber, String typeOfComplaint, String feedbackRating) {
         this.userName = userName;
         this.contactNumber = contactNumber;
         this.roomNumber = roomNumber;
@@ -20,10 +20,10 @@ public class Complaint {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-    public int getContactNumber() {
+    public String getContactNumber() {
         return contactNumber;
     }
-    public void setContactNumber(int contactNumber) {
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
     public int getRoomNumber() {
