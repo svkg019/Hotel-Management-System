@@ -9,6 +9,5 @@ public class ComplaintDAO {
     }
     public void addComplaint(Complaint complaint) {
         complaintList.add(complaint);
-        System.out.println("Complaint Registered Successfully");
     }
 }
