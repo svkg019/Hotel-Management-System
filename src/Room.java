@@ -1,12 +1,12 @@
 public class Room {
     private int roomNumber;
-    private String roomType;
+    private int roomType;
     private String place;
     private int price;
     private boolean isBooked;
     private String dateOfAvailability;
 
-    public Room(int roomNumber, String roomType, String place, int price, boolean isBooked, String dateOfAvailability) {
+    public Room(int roomNumber, int roomType, String place, int price, boolean isBooked, String dateOfAvailability) {
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.place = place;
@@ -21,7 +21,7 @@ public class Room {
     public boolean getIsBooked() {
         return isBooked;
     }
-    public String getRoomType() {
+    public int getRoomType() {
         return roomType;
     }
     public String getDateOfAvailability() {
@@ -40,7 +40,7 @@ public class Room {
     public void setIsBooked(boolean isBooked) {
         this.isBooked = isBooked;
     }
-    public void setRoomType(String roomType) {
+    public void setRoomType(int roomType) {
         this.roomType = roomType;
     }
     public void setDateOfAvailability(String dateOfAvailability) {
