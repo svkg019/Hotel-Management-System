@@ -372,11 +372,13 @@ class Main{
         String name = sc.next();
         System.out.println("Enter your contact number: ");
         String contact = sc.next();
+        System.out.println("Enter your customerID: ");
+        String customerID = sc.next();
         int roomNumber = hotelService.checkRoomAvailability(roomPreferenceID, location);
         if(roomNumber==-1) {
             System.out.println("No room available!");
         }else {
-            Booking booking = new Booking(name, contact,roomPreferenceID,checkInDate,checkOutDate,location,roomNumber);
+            Booking booking = new Booking(name, contact,customerID,roomPreferenceID,checkInDate,checkOutDate,location,roomNumber);
             hotelService.addBooking(booking);
             hotelService.changeIsBooked(roomNumber);
             hotelService.changeDateOfAvailability(roomNumber,checkOutDate);
