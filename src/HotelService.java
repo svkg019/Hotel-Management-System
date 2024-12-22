@@ -44,7 +44,9 @@ public class HotelService {
         return userId.toLowerCase().contains("hotel.com");
     }
 
-
+    public void addBooking(Booking booking) {
+        bookingDAO.addBooking(booking);
+    }
 
     public void viewBookingHistoryByID(String userId) {
         List<Booking> bookings = bookingDAO.getAllBookings();
@@ -63,21 +65,21 @@ public class HotelService {
     }
 
     //Rooms Section
-    Room r1 = new Room(119,"2BHK","Kolkata",2000,false,"19/12/24");
-    Room r2 = new Room(101,"1BHK","Darjeeling",2000,false,"19/12/24");
-    Room r3 = new Room(102,"2BHK","Kolkata",2000,false,"19/12/24");
-    Room r4 = new Room(103,"3BHK","Kolkata",3000,false,"19/12/24");
-    Room r5 = new Room(104,"1BHK","Kolkata",1000,false,"19/12/24");
-    Room r6 = new Room(105,"2BHK","Kolkata",2000,false,"19/12/24");
-    Room r7 = new Room(106,"3BHK","Kolkata",3000,false,"19/12/24");
-    Room r8 = new Room(107,"1BHK","Kolkata",1000,false,"19/12/24");
-    Room r9 = new Room(108,"2BHK","Kolkata",2000,false,"19/12/24");
-    Room r10 = new Room(109,"3BHK","Kolkata",3000,false,"19/12/24");
-    Room r11 = new Room(110,"1BHK","Kolkata",1000,false,"19/12/24");
-    Room r12 = new Room(111,"2BHK","Kolkata",2000,false,"19/12/24");
-    Room r13 = new Room(112,"3BHK","Kolkata",3000,false,"19/12/24");
-    Room r14 = new Room(113,"2BHK","Darjeeling",3000,false,"19/12/24");
-    Room r15 = new Room(114,"3BHK","Darjeeling",4000,false,"19/12/24");
+    Room r1 = new Room(119,2,"Kolkata",2000,false,"19/12/24");
+    Room r2 = new Room(101,1,"Darjeeling",2000,false,"19/12/24");
+    Room r3 = new Room(102,2,"Kolkata",2000,false,"19/12/24");
+    Room r4 = new Room(103,3,"Kolkata",3000,false,"19/12/24");
+    Room r5 = new Room(104,1,"Kolkata",1000,false,"19/12/24");
+    Room r6 = new Room(105,2,"Kolkata",2000,false,"19/12/24");
+    Room r7 = new Room(106,3,"Kolkata",3000,false,"19/12/24");
+    Room r8 = new Room(107,1,"Kolkata",1000,false,"19/12/24");
+    Room r9 = new Room(108,2,"Kolkata",2000,false,"19/12/24");
+    Room r10 = new Room(109,3,"Kolkata",3000,false,"19/12/24");
+    Room r11 = new Room(110,1,"Kolkata",1000,false,"19/12/24");
+    Room r12 = new Room(111,2,"Kolkata",2000,false,"19/12/24");
+    Room r13 = new Room(112,3,"Kolkata",3000,false,"19/12/24");
+    Room r14 = new Room(113,2,"Darjeeling",3000,false,"19/12/24");
+    Room r15 = new Room(114,3,"Darjeeling",4000,false,"19/12/24");
 
     public void addDefaultRooms() {
         roomDAO.addRoom(r1);
@@ -130,10 +132,10 @@ public class HotelService {
         }
     }
 
-    public int checkRoomAvailability(String roomType, String place) {
+    public int checkRoomAvailability(int roomType, String place) {
         List<Room> rooms = roomDAO.getAllRooms();
         for (Room room : rooms) {
-            if (room.getRoomType().equalsIgnoreCase(roomType) && room.getPlace().equalsIgnoreCase(place) && room.getIsBooked()) {
+            if (room.getRoomType()==roomType && room.getPlace().equalsIgnoreCase(place) && room.getIsBooked()) {
                 return room.getRoomNumber();
             }
         }
