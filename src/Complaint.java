@@ -1,11 +1,11 @@
 public class Complaint {
     private String userName;
     private int contactNumber;
-    private short roomNumber;
+    private int roomNumber;
     private String typeOfComplaint;
-    private short feedbackRating;
+    private String feedbackRating;
 
-    public Complaint(String userName, int contactNumber, short roomNumber, String typeOfComplaint, short feedbackRating) {
+    public Complaint(String userName, int contactNumber, int roomNumber, String typeOfComplaint, String feedbackRating) {
         this.userName = userName;
         this.contactNumber = contactNumber;
         this.roomNumber = roomNumber;
@@ -26,10 +26,10 @@ public class Complaint {
     public void setContactNumber(int contactNumber) {
         this.contactNumber = contactNumber;
     }
-    public short getRoomNumber() {
+    public int getRoomNumber() {
         return roomNumber;
     }
-    public void setRoomNumber(short roomNumber) {
+    public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
     }
     public String getTypeOfComplaint() {
@@ -38,10 +38,10 @@ public class Complaint {
     public void setTypeOfComplaint(String typeOfComplaint) {
         this.typeOfComplaint = typeOfComplaint;
     }
-    public short getFeedbackRating() {
+    public String getFeedbackRating() {
         return feedbackRating;
     }
-    public void setFeedbackRating(short feedbackRating) {
+    public void setFeedbackRating(String feedbackRating) {
         this.feedbackRating = feedbackRating;
     }
 }
