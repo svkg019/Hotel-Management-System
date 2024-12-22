@@ -121,13 +121,14 @@ public class HotelService {
         }
     }
 
-    public void changeDateOfAvailability(int roomNumber, String date) {
+    public int checkRoomAvailability(String roomType, String place) {
         List<Room> rooms = roomDAO.getAllRooms();
         for (Room room : rooms) {
-            if (room.getRoomNumber() == roomNumber) {
-                room.setDateOfAvailability(date);
+            if (room.getRoomType().equalsIgnoreCase(roomType) && room.getPlace().equalsIgnoreCase(place) && room.getIsBooked()) {
+                return room.getRoomNumber();
             }
         }
+        return -1;
     }
 
     //Contact
