@@ -101,6 +101,13 @@ public class HotelService {
         roomDAO.addRoom(room);
     }
 
+    public void getRoomDetails() {
+        List<Room> rooms = roomDAO.getAllRooms();
+        for (Room room : rooms) {
+            System.out.println(room.getRoomNumber() + " " + room.getRoomType() + " " + room.getPlace() + " " + room.getPrice() + " " + room.getIsBooked() + " " + room.getDateOfAvailability());
+        }
+    }
+
     //Contact
     public void contactInformation() {
         System.out.println("Mobile No.: +91-0000000000");
