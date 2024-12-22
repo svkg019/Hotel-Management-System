@@ -294,6 +294,7 @@ class Main{
                         PaymentDetails pd = new PaymentDetails(userId,name,cardNumber,cvv,ed);
                         hotelService.addPaymentDetails(pd);
                         System.out.println("Payment Successful");
+                        exit=1;
                         break;
                     case 2:
                         exit=1;
@@ -321,6 +322,7 @@ class Main{
                 switch(choice) {
                     case 1:
                         System.out.println("Payment Approved!");
+                        exit=1;
                         break;
                     case 2:
                         exit=1;
