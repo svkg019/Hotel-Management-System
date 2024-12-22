@@ -120,6 +120,15 @@ public class HotelService {
             }
         }
     }
+    //change date of availability
+    public void changeDateOfAvailability(int roomNumber, String date) {
+        List<Room> rooms = roomDAO.getAllRooms();
+        for (Room room : rooms) {
+            if (room.getRoomNumber() == roomNumber) {
+                room.setDateOfAvailability(date);
+            }
+        }
+    }
 
     public int checkRoomAvailability(String roomType, String place) {
         List<Room> rooms = roomDAO.getAllRooms();
