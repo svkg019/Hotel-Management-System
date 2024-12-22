@@ -61,10 +61,14 @@ public class HotelService {
         }
     }
 
-    public void viewBookingHistory() {
+    //view booking history by customer id
+    public void viewBookingHistoryByCustomerID(String customerId) {
         List<Booking> bookings = bookingDAO.getAllBookings();
         for (Booking booking : bookings) {
-            System.out.println(booking.getCustomerId() + " " + booking.getName() + " " + booking.getMobileNumber() + " " + booking.getEmail());
+            if (booking.getCustomerId().equalsIgnoreCase(customerId)) {
+                System.out.println(booking.getBookingId() + " " + booking.getCheckInDate() + " " + booking.getCheckOutDate() + " " + booking.getRoomNumber());
+                billCalculationByBookingId(booking.getBookingId());
+            }
         }
     }
 
@@ -216,6 +220,31 @@ public class HotelService {
         List<PaymentDetails> paymentHistory = paymentDetailsDAO.getAllBookings();
         for(PaymentDetails pd:paymentHistory) {
             if(UserID.equals(pd.getUserId())) {
+            }
+        }
+    }
+
+    //bill calculation by booking id
+    public void billCalculationByBookingId(int bookingId) {
+        List<Booking> bookings = bookingDAO.getAllBookings();
+        for (Booking booking : bookings) {
+            if (booking.getBookingId() == bookingId) {
+                double totalBill = 0;
+                int days = 2;
+                int roomCharge=0;
+                if(booking.getRoomType()==1) {
+                    roomCharge=1000;
+                }else if(booking.getRoomType()==2) {
+                    roomCharge=2000;
+                }else {
+                    roomCharge=3000;
+                }
+                int extra = 0;
+                if(booking.getLocation()=="Darjelling") {
+                    extra = 1000;
+                }
+                totalBill = (roomCharge*days)+extra;
+                System.out.println("Total Bill: "+ totalBill);
             }
         }
     }
