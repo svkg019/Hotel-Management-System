@@ -233,11 +233,13 @@ public class HotelService {
         System.out.println("Total Bill: "+ totalBill);
     }
 
-    public Booking bookingFinder(String userId) {
+    public List<Booking> bookingFinder(String userId) {
         List<Booking> bookings = bookingDAO.getAllBookings();
+        List<Booking> userBookings = new ArrayList<>();
         for (Booking booking : bookings) {
             if (booking.getCustomerId().equalsIgnoreCase(userId)) {
-                return booking;
+                userBookings.add(booking);
+                return userBookings;
             }
         }
         return null;
