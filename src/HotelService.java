@@ -218,7 +218,8 @@ public class HotelService {
             extra = 1000;
         }
         totalBill = (roomCharge*days)+extra;
-        System.out.println("Room Charge: "+ roomCharge);
+        System.out.println("Room Charge/Day: "+ roomCharge);
+        System.out.println("Number of days: "+ days);
         System.out.println("Extra charge for premium location: "+ extra);
         System.out.println("Total Bill: "+ totalBill);
     }
