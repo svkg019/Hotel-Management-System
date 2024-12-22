@@ -57,12 +57,18 @@ public class HotelService {
         for (Booking booking : bookings) {
             if (booking.getCustomerId().equalsIgnoreCase(userId)) {
                 System.out.println(booking.getBookingId() + " " + booking.getCheckInDate() + " " + booking.getCheckOutDate() + " " + booking.getRoomNumber());
+            }else{
+                System.out.println("No booking history found");
             }
         }
     }
 
     public void viewAllBookingHistory() {
         List<Booking> bookings = bookingDAO.getAllBookings();
+        if (bookings.isEmpty()) {
+            System.out.println("No booking history found");
+            return;
+        }
         for (Booking booking : bookings) {
             System.out.println(booking.getBookingId() + " " + booking.getCheckInDate() + " " + booking.getCheckOutDate() + " " + booking.getRoomNumber());
         }
