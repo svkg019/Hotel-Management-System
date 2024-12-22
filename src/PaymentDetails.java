@@ -1,11 +1,11 @@
 public class PaymentDetails {
     private String userId;
     private String cardHolderName;
-    private int cardNumber;
+    private String cardNumber;
     private int cvv;
     private String expiryDate;
 
-    public PaymentDetails(String userId, String cardHolderName, int cardNumber, int cvv, String expiryDate) {
+    public PaymentDetails(String userId, String cardHolderName, String cardNumber, int cvv, String expiryDate) {
         this.userId = userId;
         this.cardHolderName = cardHolderName;
         this.cardNumber = cardNumber;
@@ -19,7 +19,7 @@ public class PaymentDetails {
     public String getCardHolderName() {
         return cardHolderName;
     }
-    public int getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
     public int getCvv() {
@@ -35,7 +35,7 @@ public class PaymentDetails {
     public void setCardHolderName(String cardHolderName) {
         this.cardHolderName = cardHolderName;
     }
-    public void setCardNumber(int cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
     public void setCvv(int cvv) {
