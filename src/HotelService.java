@@ -108,6 +108,28 @@ public class HotelService {
         }
     }
 
+    public void changeIsBooked(int roomNumber) {
+        List<Room> rooms = roomDAO.getAllRooms();
+        for (Room room : rooms) {
+            if (room.getRoomNumber() == roomNumber) {
+                if(room.getIsBooked()){
+                    room.setIsBooked(false);
+                }else{
+                    room.setIsBooked(true);
+                }
+            }
+        }
+    }
+
+    public void changeDateOfAvailability(int roomNumber, String date) {
+        List<Room> rooms = roomDAO.getAllRooms();
+        for (Room room : rooms) {
+            if (room.getRoomNumber() == roomNumber) {
+                room.setDateOfAvailability(date);
+            }
+        }
+    }
+
     //Contact
     public void contactInformation() {
         System.out.println("Mobile No.: +91-0000000000");
