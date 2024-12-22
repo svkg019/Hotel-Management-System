@@ -101,7 +101,7 @@ class Main{
                                     System.out.println("View Booking History");
                                     break;
                                 case 3:
-                                    System.out.println("Room Status");
+                                    hotelService.getRoomDetails();
                                     break;
                                 case 4:
                                     payBill();
