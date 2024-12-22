@@ -13,6 +13,7 @@ public class HotelService {
         roomDAO = new RoomDAO();
         complaintDAO = new ComplaintDAO();
         paymentDetailsDAO = new PaymentDetailsDAO();
+        addDefaultRooms();
     }
 
     public void registerUser(User user) {
@@ -78,9 +79,27 @@ public class HotelService {
     Room r14 = new Room(113,"2BHK","Darjeeling",3000,false,"19/12/24");
     Room r15 = new Room(114,"3BHK","Darjeeling",4000,false,"19/12/24");
 
+    public void addDefaultRooms() {
+        roomDAO.addRoom(r1);
+        roomDAO.addRoom(r2);
+        roomDAO.addRoom(r3);
+        roomDAO.addRoom(r4);
+        roomDAO.addRoom(r5);
+        roomDAO.addRoom(r6);
+        roomDAO.addRoom(r7);
+        roomDAO.addRoom(r8);
+        roomDAO.addRoom(r9);
+        roomDAO.addRoom(r10);
+        roomDAO.addRoom(r11);
+        roomDAO.addRoom(r12);
+        roomDAO.addRoom(r13);
+        roomDAO.addRoom(r14);
+        roomDAO.addRoom(r15);
+    }
 
-
-
+    public void addRoom(Room room) {
+        roomDAO.addRoom(room);
+    }
 
     //Contact
     public void contactInformation() {
