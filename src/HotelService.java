@@ -61,14 +61,11 @@ public class HotelService {
         }
     }
 
-    //view booking history by customer id
-    public void viewBookingHistoryByCustomerID(String customerId) {
+    //view all booking history
+    public void viewAllBookingHistory() {
         List<Booking> bookings = bookingDAO.getAllBookings();
         for (Booking booking : bookings) {
-            if (booking.getCustomerId().equalsIgnoreCase(customerId)) {
-                System.out.println(booking.getBookingId() + " " + booking.getCheckInDate() + " " + booking.getCheckOutDate() + " " + booking.getRoomNumber());
-                billCalculationByBookingId(booking.getBookingId());
-            }
+            System.out.println(booking.getBookingId() + " " + booking.getCheckInDate() + " " + booking.getCheckOutDate() + " " + booking.getRoomNumber());
         }
     }
 
@@ -155,6 +152,15 @@ public class HotelService {
         for (Booking booking : bookings) {
             if (booking.getBookingId() == bookingId) {
                 booking.setName(name);
+            }
+        }
+    }
+
+    public void updateRoomTypeInBooking(int bookingId, int roomType) {
+        List<Booking> bookings = bookingDAO.getAllBookings();
+        for (Booking booking : bookings) {
+            if (booking.getBookingId() == bookingId) {
+                booking.setRoomType(roomType);
             }
         }
     }
