@@ -59,7 +59,7 @@ class Main{
                                     bookingService();
                                     break;
                                 case 2:
-                                    hotelService.viewBookingHistory();
+                                    //hotelService.viewBookingHistory();
                                     break;
                                 case 3:
                                     viewBookingHistoryByID();
@@ -98,7 +98,7 @@ class Main{
                                     reservationService();
                                     break;
                                 case 2:
-                                    System.out.println("View Booking History");
+                                    viewBookingHistoryByID();
                                     break;
                                 case 3:
                                     hotelService.getRoomDetails();
@@ -186,7 +186,7 @@ class Main{
     }
 
     public static void viewBookingHistoryByID() {
-        System.out.println("Enter the userId: ");
+        System.out.println("Enter the customerID: ");
         String userId = sc.next();
         hotelService.viewBookingHistoryByID(userId);
     }
@@ -399,8 +399,6 @@ class Main{
         int bookingId = sc.nextInt();
         hotelService.deleteBooking(bookingId);
     }
-
-
 
     public static void bookingService() {
         int exit=0;
