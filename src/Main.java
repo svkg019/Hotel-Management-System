@@ -59,7 +59,7 @@ class Main{
                                     bookingService();
                                     break;
                                 case 2:
-                                    //hotelService.viewBookingHistory();
+                                    hotelService.viewAllBookingHistory();
                                     break;
                                 case 3:
                                     viewBookingHistoryByID();
