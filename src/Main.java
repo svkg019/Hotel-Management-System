@@ -339,6 +339,7 @@ class Main{
             System.out.println("1. New reservation");
             System.out.println("2. Update reservation");
             System.out.println("3. Delete reservation");
+            System.out.println("4. Go-Back");
             int choice = sc.nextInt();
             switch(choice) {
                 case 1:
@@ -373,7 +374,7 @@ class Main{
             System.out.println("1. 1-BHK");
             System.out.println("2. 2-BHK");
             System.out.println("3. 3-BHK");
-            roomPreferenceID = sc.nextInt();
+            roomPreferenceID = sc.nextInt();sc.nextLine();
             if(roomPreferenceID>=1&&roomPreferenceID<=3) {
                 exit=1;
             }
@@ -382,7 +383,7 @@ class Main{
             }
         }while (exit==0);
         System.out.println("Enter your name: ");
-        String name = sc.next();
+        String name = sc.nextLine();
         System.out.println("Enter your contact number: ");
         String contact = sc.next();
         System.out.println("Enter your customerID: ");
@@ -396,6 +397,7 @@ class Main{
             hotelService.changeIsBooked(roomNumber);
             hotelService.changeDateOfAvailability(roomNumber,checkOutDate);
             System.out.println("Reservation added successfully");
+            System.out.println("Your reservation ID is: "+booking.getBookingId());
         }
     }
 
