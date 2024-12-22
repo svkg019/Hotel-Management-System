@@ -48,6 +48,10 @@ public class HotelService {
         bookingDAO.addBooking(booking);
     }
 
+    public void deleteBooking(int bookingId) {
+        bookingDAO.deleteBooking(bookingId);
+    }
+
     public void viewBookingHistoryByID(String userId) {
         List<Booking> bookings = bookingDAO.getAllBookings();
         for (Booking booking : bookings) {
