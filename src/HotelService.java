@@ -147,7 +147,7 @@ public class HotelService {
     public int checkRoomAvailability(int roomType, String place) {
         List<Room> rooms = roomDAO.getAllRooms();
         for (Room room : rooms) {
-            if (room.getRoomType()==roomType && room.getPlace().equalsIgnoreCase(place) && room.getIsBooked()) {
+            if (room.getRoomType()==roomType && room.getPlace().equalsIgnoreCase(place) && !room.getIsBooked()) {
                 return room.getRoomNumber();
             }
         }
